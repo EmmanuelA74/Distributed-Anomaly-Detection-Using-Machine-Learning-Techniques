@@ -53,4 +53,5 @@ print(dataset)
 print(node_info)
 
 with open('values3.txt', 'w') as data:
-    data.write(str(node_info))
+    for node, info in node_info.items():
+        data.write(node + ": " + info + "\n")
