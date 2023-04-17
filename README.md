@@ -1,7 +1,7 @@
 # Distributed-Anomaly-Detection-Using-Machine-Learning-Techniques
 
-##Abstract:
+## Abstract:
 The Internet of Things (IoTs) is a network of physical objects that use sensors to collect data and transmit them to a central hub. The security of IoT networks has been a growing concern, particularly in critical applications, such as healthcare, where lives may be at stake. Such IoT networks are usually vulnerable to security attacks such as the denial of service (DoS) attacks. Anomaly detection is an effective approach to identifying such security threats, but its implementation in IoT networks poses challenges due to the large number of devices involved, their diverse tasks, and resource limitations. In this research, we propose a distributed anomaly detection system for IoT networks that uses a charge-assignment algorithm to assign two charges to each node in a cluster, with each node serving as both a monitor and a charge. We also propose a behavior-analysis algorithm that consists of two phases, a behavior assessment phase that learns a node's normal behavior and a machine learning assessment phase that continuously evaluates the node's behavior. Monitors keep track of sensed data and transmissions from their charges and use the behavior-analysis algorithm to detect anomalies, resulting in the deactivation of only the faulty node. We demonstrate the effectiveness of our proposed solution using a simulated IoT system with 24, 48, and 96 IoT programmable devices and bases, and the NS-3 network simulator. Our proposed solution is effective in detecting single faulty nodes per cluster, resulting in a distributed and efficient anomaly detection system for IoT networks.
 
-##Files and their functions:
-  **KMeans.py: This is the file that implements the k-means clustering algorithm used to organize the network into clusters in order to minimize power consumption due to cluster transmissions.
+## Files and their functions:
+  **KMeans.py**: This is the file that implements the k-means clustering algorithm used to organize the network into clusters in order to minimize power consumption due to cluster transmissions.
