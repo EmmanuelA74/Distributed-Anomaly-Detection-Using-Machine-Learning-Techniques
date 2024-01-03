@@ -1,4 +1,5 @@
 class Node:
+    # needs to be implemented in the Kmeans class
     def __init__(self, node_id, cluster_id, info):
         # monitors and charges 
         self.node_id = node_id
