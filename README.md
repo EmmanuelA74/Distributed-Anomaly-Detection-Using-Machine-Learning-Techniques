@@ -5,4 +5,5 @@ The Internet of Things (IoTs) is a network of physical objects that use sensors 
 
 ## Files and their functions:
   **KMeans.py**: This is the file that implements the k-means clustering algorithm used to organize the network into clusters in order to minimize power consumption due to cluster transmissions.
+  
   **Node.py**: This file implements the functions for simulating communication for each node in our cluster of nodes.
