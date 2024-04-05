@@ -98,7 +98,6 @@ for i, cluster in enumerate(clusters):
                 print(f"info: {non_cluster_head_node.info['info']}")
                 print(f"coordinates: {non_cluster_head_node.node_id}")
                 print(f"monitored_by: {monitors_and_charges}")
-                print(f"charge: {non_cluster_head_node.charge}")
                 print(f"cluster_head: {cluster_head_node.node_id}")
                 print()
 
@@ -149,12 +148,6 @@ for minute in range(time_interval):
             temperature_reading = random.randint(20, 30)  # Simulate temperature readings
             node_obj.communication_log.append({"timestamp": minute, "node_id": node_id, "temperature": temperature_reading})
 
-            # Penalize energy for transmission
-            node_obj.set_charge(node_obj.charge - 1)
-
-            # If the node is a cluster head, penalize less for reception
-            if node_obj.is_cluster_head:
-                node_obj.set_charge(node_obj.charge - 0.5)
 
     # Every 5 minutes, the cluster head sends the list to the central node
     if (minute + 1) % 5 == 0:
@@ -167,10 +160,6 @@ for minute in range(time_interval):
             if node_obj.is_cluster_head:
                 data_to_send.extend(node_obj.communication_log)
 
-        # Calculate energy spent (proportional to the amount of data sent)
-        energy_spent = len(data_to_send)
-        central_node_obj.set_charge(central_node_obj.charge - energy_spent)
-
         # Clear communication logs after sending data
         for node_id, node_obj in node_objects.items():
             if node_obj.is_cluster_head:
@@ -182,5 +171,5 @@ for minute in range(time_interval):
         print("-------------------")
         print(f"info: {obj.info['info']}")
         print(f"coordinates: {node_id}")
-        print(f"charge: {obj.charge}")
-        print("Energy spent: " + energy_spent)
+        print(f"energy: {obj.check_energy}")
+       
