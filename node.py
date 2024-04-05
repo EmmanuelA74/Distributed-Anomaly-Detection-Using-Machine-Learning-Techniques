@@ -17,8 +17,8 @@ class Node:
         # - monitor2 (str): Identifier of the second node that this node is monitoring.
         # - charge1 (str): Identifier of the first node that is monitoring this node.
         # - charge2 (str): Identifier of the second node that is monitoring this node.
-        # - charge (int): Charge value for the node.
         # - charge_info (dict): Dictionary to store received charge information.
+        
         self.node_id = node_id
         self.cluster_id = cluster_id
         self.info = info
@@ -27,8 +27,6 @@ class Node:
         self.monitor2 = -1
         self.charge1 = -1
         self.charge2 = -1
-        self.charge = -1  # Charge value for the node
-        self.charge_info = {"source_node": None, "charge": None}  # Received charge information
         self.is_cluster_head = False
         self.is_central_node = False
         self.is_non_cluster_head = False
@@ -36,15 +34,12 @@ class Node:
 
     def set_as_cluster_head(self):
         self.is_cluster_head = True
-        self.set_charge(-1)
 
     def set_as_central_node(self):
         self.is_central_node = True
-        self.set_charge(-1)
 
     def set_as_non_cluster_head(self):
         self.is_non_cluster_head = True
-        self.set_charge(-1)
 
     def set_charge(self, charge):
         self.charge = charge
@@ -82,19 +77,6 @@ class Node:
         # Consume charge for recieving charge info
         self.consume_charge(0.5)
 
-    def check_for_attack(self):
-        # Check for attacks based on received charge information.
-
-        # Consume charge for checking
-        self.consume_charge(2)
-
-        if self.charge_info["charge"] != -1:
-            if self.charge_info["charge"] != self.charge:
-                attack_message = f"Attack detected! Node {self.node_id} has inconsistent charges."
-                return attack_message
-            else:
-                return "Everything checks out."
-        else:
-            return "Everything checks out."
+    
         
         
